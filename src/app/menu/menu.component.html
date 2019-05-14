@@ -1,0 +1,79 @@
+<form action=""  #form="ngForm" >
+    <div class="form-group">
+    
+        <input  placeholder="NAME" type="text" class="form-control" id="name" required
+        [(ngModel)]="notedetails.name" name="name" #name="ngModel">
+      </div>
+
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+
+          <p *ngIf="name.errors.required">
+             please enter your name
+          </p>
+      
+                       
+          </div>
+
+
+  <div class="form-group">
+    
+    <input  placeholder="EMAIL" type="email" class="form-control" id="email" required email
+    [(ngModel)]="notedetails.email" name="email" #email="ngModel">
+  </div>
+
+  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+
+      <p *ngIf="email.errors.required">
+        Email is required.
+      </p>
+
+      <p *ngIf="email.errors.email">
+         enter a valid email
+        </p>
+  
+                   
+      </div> 
+
+
+  <div class="form-group">
+    
+    <input placeholder="PHONE" type="text" [pattern]="mobnumPattern" class="form-control" id="phone" required
+    [(ngModel)]="notedetails.phone" name="phone" #phone="ngModel">
+  </div>
+  
+  <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+
+
+    <p *ngIf="phone.errors.required">
+      phone number required.
+    </p>
+
+
+      <p *ngIf="phone.errors.pattern">
+        enter a valid phone number
+      </p>
+
+          
+                   
+      </div>
+
+  
+  <div class="form-group">
+    
+    <textarea id="message" placeholder="MESSAGE" class="md-textarea form-control" rows="3" required
+    [(ngModel)]="notedetails.message" name="message" #message="ngModel" ></textarea>
+    
+  </div>
+
+  <div *ngIf="message.invalid && (message.dirty || message.touched)" class="alert alert-danger">
+
+    <p *ngIf="message.errors.required">
+      please enter some message
+    </p>
+
+        
+                 
+    </div>
+  <button type="submit" (click)="noteSending(); form.reset()" class="btn btn-primary" [disabled]="!form.form.valid">Submit</button>
+  <p style="background:red;" > {{messagee}}</p>
+</form>

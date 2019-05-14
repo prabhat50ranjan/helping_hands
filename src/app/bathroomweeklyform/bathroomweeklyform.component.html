@@ -1,0 +1,116 @@
+<div style="background:rgb(92, 88, 88); font-family:'Krona One';word-spacing:5px; " class="container-fluid">
+  <br><br>
+  <div class="card" style=" box-shadow: 20px 20px 30px; border-left: 6px solid red;  background-color: lightgrey; " >
+  
+  <form  style="padding: 50px 50px 50px 50px;" #bookingForm="ngForm">
+  
+  <div class="form-group" >
+    FULL NAME:
+    <input type="text"  class="form-control" id="name"
+    required  minlength="3"
+    [(ngModel)]="bookdetails.name" name="name" #name="ngModel">
+
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+
+      <p *ngIf="name.errors.required">
+        Name is required.
+      </p> 
+      <div *ngIf="name.errors.minlength">
+        please enter your proper name
+      </div>
+      </div>
+
+
+
+  </div>
+
+
+  
+
+  <div class="form-group">
+    EMAIL:
+    <input type="email" class="form-control" id="email"
+    required email
+    [(ngModel)]="bookdetails.email" name="email" #email="ngModel">
+
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+
+      <p *ngIf="email.errors.required">
+        Email is required.
+      </p>
+  
+      <p *ngIf="email.errors.email">
+        please enter valid email
+      </p>
+      
+      </div>
+
+
+  </div> 
+
+
+  
+
+  <div class="form-group" >
+    PHONE:
+    <input type="text" class="form-control" [pattern]="mobnumPattern" id="phone"
+    required
+    [(ngModel)]="bookdetails.phone" name="phone" #phone="ngModel"> 
+
+    <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+
+      <p *ngIf="phone.errors.required">
+        phone number is required.
+      </p>
+  
+      <p *ngIf="phone.errors.pattern">
+        enter a valid phone number
+      </p>
+  
+      
+      
+      </div>
+
+  </div>
+    
+  
+
+
+  <div class="form-group"> 
+    ADDRESS:
+    <input type="text"  class="form-control" id="address"
+    required
+    [(ngModel)]="bookdetails.address" name="address" #address="ngModel">
+
+    <div *ngIf="address.invalid && (address.dirty || address.touched)" class="alert alert-danger">
+
+      <p *ngIf="address.errors.required">
+       Address is required.
+      </p>
+  
+      
+      </div>
+
+  </div>
+  
+
+
+  <div class="form-group">
+    OTHER REQUIREMENTS:
+    <input type="text" class="form-control" id="other"
+    
+    [(ngModel)]="bookdetails.other" name="other" >
+  </div>
+  
+  <button type="submit" (click)="bookingRequest()" class="btn btn-primary" [disabled]="!bookingForm.form.valid">Submit</button>
+  <p style="background:red;" > {{message}}</p>
+</form>
+
+
+</div>
+
+<br><br>
+
+
+</div>
+ 

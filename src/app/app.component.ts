@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LoggingService } from './logging.service';
-
+import { Booking } from './booking';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,14 +12,11 @@ import { LoggingService } from './logging.service';
 export class AppComponent {
   constructor(private loggingService:LoggingService){}
   title = 'helping-hands';
-
+  bookdetails=new Booking('','','','','' );
   onGet()
   {
-    this.loggingService.getResponse()
-    .subscribe(
-      (response)=>console.log(response),
-      (error)=>console.log(error)
+    console.log("get operation");
 
-    );
+  
   }
 }

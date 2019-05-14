@@ -33,7 +33,7 @@ body {
   display: none;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
     float: right;
@@ -41,7 +41,7 @@ body {
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
@@ -53,4 +53,9 @@ body {
     display: block;
     text-align: left;
   }
+}
+
+.vl {
+  border-left: 3px solid rgb(219, 111, 71);
+  position: relative; height:auto; margin-left:1%; margin-right: 1%;
 }
